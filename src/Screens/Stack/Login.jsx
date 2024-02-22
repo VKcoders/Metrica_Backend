@@ -9,6 +9,10 @@ function Login({route: { name }, navigation: { navigate }}) {
     const localized = strings[name];
     const css = styles[name];
 
+    const handleSubmit = () => {
+        navigate("HomeTab", { info })
+    }
+
     const inputModel = (type) => {
         const handleChange = (value) => setInfo(p => ({...p, [type]: value}))
 
@@ -31,7 +35,7 @@ function Login({route: { name }, navigation: { navigate }}) {
             <KeyboardAvoidingView style={css.infoContainer} behavior="position">
                 { inputModel("username") }
                 { inputModel("password") }
-                <TouchableOpacity style={css.submitBtn}>
+                <TouchableOpacity style={css.submitBtn} onPress={handleSubmit}>
                     <Text style={css.submitBtn.text}>{localized.submitBtn}</Text>
                 </TouchableOpacity>
             </KeyboardAvoidingView>

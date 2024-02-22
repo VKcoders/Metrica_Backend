@@ -1,12 +1,18 @@
+// Stack
 import Cover from "./Stack/Cover";
 import Login from "./Stack/Login";
-// import test from './Tab/test';
+// Tab
+import Home from './Tab/Home';
+import Historic from './Tab/Historic';
+import Remainder from './Tab/Remainder';
 
 export const stackScreens = {
     Cover,
     Login
 };
 
-// export const tabScreens = {
-//     test
-// };
+export const tabScreens = {
+    Historic,
+    Home,
+    Remainder,
+};

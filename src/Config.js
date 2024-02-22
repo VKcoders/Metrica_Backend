@@ -13,5 +13,17 @@ export const theme = {
 }
 
 export const options = {
-     headerShown: false,
+     stack: {
+          headerShown: false,
+     },
+     tab: {
+          headerShown: false,
+          tabBarShowLabel: false,
+          tabBarStyle: { 
+               backgroundColor: '#6F8FAF',
+               borderTopWidth: 0,
+               height: 90,
+               borderRadius: 50
+          }
+     }
 };
