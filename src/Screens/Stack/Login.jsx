@@ -3,6 +3,7 @@ import { SafeAreaView, View, Text, TouchableOpacity, TextInput, KeyboardAvoiding
 
 import { screens as styles } from "../../Style";
 import { strings } from "../../Localized";
+import Background from "../../Components/Background";
 
 function Login({route: { name }, navigation: { navigate }}) {
     const [info, setInfo] = useState({username: '', password: ''});
@@ -43,15 +44,18 @@ function Login({route: { name }, navigation: { navigate }}) {
     }
 
     return (
-        <SafeAreaView style={css.screen}>
-            <KeyboardAvoidingView style={css.infoContainer} behavior="position">
-                { inputModel("username") }
-                { inputModel("password") }
-                <TouchableOpacity disabled={!canSubmit} style={[css.submitBtn, !!canSubmit && {backgroundColor: "#0096FF"}]} onPress={handleSubmit}>
-                    <Text style={css.submitBtn.text}>{localized.submitBtn}</Text>
-                </TouchableOpacity>
-            </KeyboardAvoidingView>
-        </SafeAreaView>
+        <>
+            <Background index={"2"} />
+            <SafeAreaView style={css.screen}>
+                <KeyboardAvoidingView style={css.infoContainer} behavior="position">
+                    { inputModel("username") }
+                    { inputModel("password") }
+                    <TouchableOpacity disabled={!canSubmit} style={[css.submitBtn, !!canSubmit && {backgroundColor: "#0096FF"}]} onPress={handleSubmit}>
+                        <Text style={css.submitBtn.text}>{localized.submitBtn}</Text>
+                    </TouchableOpacity>
+                </KeyboardAvoidingView>
+            </SafeAreaView>
+        </>
     )
 }
 

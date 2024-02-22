@@ -14,11 +14,13 @@ export default StyleSheet.create({
     },
     input: {
         text: {
+            color: "black",
             fontSize: 18,
             fontWeight: "500",
             marginBottom: 10
         },
         value: {
+            color: "black",
             fontSize: 16,
             fontWeight: "500",
             textAlign: "center",
@@ -30,6 +32,7 @@ export default StyleSheet.create({
     },
     submitBtn: {
         text: {
+            color: "black",
             fontSize: 18,
             fontWeight: "600",
             textAlign: "center"

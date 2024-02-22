@@ -11,7 +11,11 @@ const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const HomeTab = () => {
-  const iconSize = { width: 40, height: 40, marginTop: 10 };
+  const iconSize = { 
+    width: 40, 
+    height: 40, 
+    marginTop: Platform.OS === "ios" ? 10 : 0
+  };
 
   return (
     <Tab.Navigator initialRouteName="Home" screenOptions={options.tab} >

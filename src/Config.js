@@ -1,3 +1,4 @@
+import { Platform } from "react-native";
 import { DefaultTheme } from "@react-navigation/native";
 
 export const theme = {
@@ -22,8 +23,9 @@ export const options = {
           tabBarStyle: { 
                backgroundColor: "#6F8FAF",
                borderTopWidth: 0,
-               height: 90,
-               borderRadius: 50
+               height: Platform.OS === "ios" ? 90 : 65,
+               borderTopRightRadius: Platform.OS === "ios" ? 50 : 30,
+               borderTopLeftRadius: Platform.OS === "ios" ? 50 : 30
           }
      }
 };

@@ -8,6 +8,7 @@ export default StyleSheet.create({
     },
     newNote: {
         text: {
+            color: "black",
             fontSize: 18,
             fontWeight: "600"
         },
