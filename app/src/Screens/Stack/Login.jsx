@@ -1,12 +1,17 @@
-import { useState, useEffect } from "react";
-import { SafeAreaView, View, Text, TouchableOpacity, TextInput, KeyboardAvoidingView } from "react-native";
+import { useState, useEffect, useContext } from "react";
+import { Global } from "../../Context";
+import { SafeAreaView, View, Text, TouchableOpacity, TextInput, KeyboardAvoidingView, Image } from "react-native";
 
 import { screens as styles } from "../../Style";
-import { strings } from "../../Localized";
+import { strings, icons } from "../../Localized";
 import Background from "../../Components/Background";
 
+import { generateToken } from "../../Service/Token";
+
 function Login({route: { name }, navigation: { navigate }}) {
+    const { setToken } = useContext(Global);   
     const [info, setInfo] = useState({username: '', password: ''});
+    const [hidePassword, setHidePassword] = useState(true);
     const [canSubmit, setCanSubmit] = useState(false);
     const localized = strings[name];
     const css = styles[name];
@@ -22,23 +27,43 @@ function Login({route: { name }, navigation: { navigate }}) {
         setCanSubmit(false);
     }, [info])
 
-    const handleSubmit = () => {
-        navigate("HomeTab", { info })
+    const handleSubmit = async () => {
+        const { status, value } = await generateToken(info);
+
+        if (!!status) {
+            setToken(value);
+            navigate("HomeTab", { name: info.username });
+            return
+        }
     }
 
     const inputModel = (type) => {
-        const handleChange = (value) => setInfo(p => ({...p, [type]: value}))
+        
+        const handleChange = (value) => setInfo(p => ({...p, [type]: value}));
 
         return (
             <View style={css.input}>
                 <Text style={css.input.text}>{localized[type][0]}</Text>
-                <TextInput
-                    style={css.input.value}
-                    placeholder={localized[type][1]}
-                    onChangeText={handleChange}
-                    placeholderTextColor="rgba(0, 0, 0, 0.2)"
-                    secureTextEntry={type === "password"}
-                />
+                <View style={css.input.innerContainer}>
+                    <TextInput
+                        style={css.input.value}
+                        placeholder={localized[type][1]}
+                        onChangeText={handleChange}
+                        placeholderTextColor="rgba(0, 0, 0, 0.2)"
+
+                        secureTextEntry={type === "password" ? hidePassword : false}
+                    />
+                    {
+                        type === "password" && (
+                            <TouchableOpacity onPress={() => setHidePassword(!hidePassword)}>
+                                <Image
+                                    style={css.input.icon}
+                                    source={icons.lock[!hidePassword ? "open" : "close"]}
+                                />
+                            </TouchableOpacity>
+                        )
+                    }
+                </View>
             </View>
         )
     }

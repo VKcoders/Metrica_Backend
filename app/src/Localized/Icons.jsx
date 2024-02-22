@@ -3,6 +3,10 @@ const path = "../Assets/";
 const icons = {
      arrow: require(path + "arrow.png"),
      add: require(path + "add.png"),
+     lock: {
+          open: require(path + "lock-open.png"),
+          close: require(path + "lock-close.png")
+     },
      background: {
           1: require(path + "bg-01.png"),
           2: require(path + "bg-02.png"),

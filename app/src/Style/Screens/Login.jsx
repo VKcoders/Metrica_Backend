@@ -13,6 +13,11 @@ export default StyleSheet.create({
         padding: 10
     },
     input: {
+        innerContainer: {
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center"
+        },
         text: {
             color: "black",
             fontSize: 18,
@@ -21,10 +26,15 @@ export default StyleSheet.create({
         },
         value: {
             color: "black",
+            flexGrow: 1,
             fontSize: 16,
             fontWeight: "500",
             textAlign: "center",
             marginBottom: 5
+        },
+        icon: {
+            width: 30,
+            height: 30
         },
         marginBottom: 20,
         borderBottomWidth: 1,
