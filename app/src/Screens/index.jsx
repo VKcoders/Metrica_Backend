@@ -5,6 +5,8 @@ import Login from "./Stack/Login";
 import Home from "./Tab/Home";
 import Historic from "./Tab/Historic";
 import Remainder from "./Tab/Remainder";
+import Announcement from "./Tab/Announcement";
+import Report from "./Tab/Report";
 
 export const stackScreens = {
     Cover,
@@ -13,6 +15,8 @@ export const stackScreens = {
 
 export const tabScreens = {
     Historic,
-    Home,
     Remainder,
+    Home,
+    Announcement,
+    Report
 };

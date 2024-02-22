@@ -11,6 +11,8 @@ const icons = {
           Home: require(path + "home.png"),
           Historic: require(path + "historic.png"),
           Remainder: require(path + "remainder.png"),
+          Announcement: require(path + "announcement.png"),
+          Report: require(path + "report.png")
      }
 };
 

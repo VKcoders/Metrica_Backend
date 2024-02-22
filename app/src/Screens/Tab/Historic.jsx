@@ -11,7 +11,7 @@ function Historic({route: { name }, navigation: { navigate }}) {
 
     return !mock ? (
         <SafeAreaView style={css.noHistory}>
-            <Text style={css.noHistory.text}>{localized.notHistory}</Text>
+            <Text style={css.noHistory.text}>{localized.noHistory}</Text>
         </SafeAreaView>
     ) : (
         <Text>Tem Historico</Text>

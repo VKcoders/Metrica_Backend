@@ -10,13 +10,22 @@ const strings = {
           submitBtn: "Entrar"
      },
      Historic: {
-          notHistory: "Entrevistador(a) sem histórico"
+          noHistory: "Entrevistador(a) sem histórico"
      },
      Remainder: {
           new: "Criar um lembrete",
           add: "Adicionar mais um lembrete",
           remove: "Remover Lembrete",
-          edit: "editar lembrete"
+          edit: "Editar lembrete"
+     },
+     Announcement: {
+          noAnnouncement: "Sem avisos até o momento..."
+     },
+     Report: {
+          new: "Criar uma ocorrência",
+          add: "Adicionar mais um ocorrência",
+          remove: "Remover ocorrência",
+          edit: "Editar ocorrência"
      }
 };
 
