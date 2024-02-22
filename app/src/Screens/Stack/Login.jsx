@@ -9,7 +9,7 @@ import Background from "../../Components/Background";
 import { generateToken } from "../../Service/Token";
 
 function Login({route: { name }, navigation: { navigate }}) {
-    const { setToken } = useContext(Global);   
+    const { setToken, setWorker } = useContext(Global);   
     const [info, setInfo] = useState({username: '', password: ''});
     const [hidePassword, setHidePassword] = useState(true);
     const [canSubmit, setCanSubmit] = useState(false);
@@ -28,11 +28,12 @@ function Login({route: { name }, navigation: { navigate }}) {
     }, [info])
 
     const handleSubmit = async () => {
-        const { status, value } = await generateToken(info);
+        const { status, token, name } = await generateToken(info);
 
         if (!!status) {
-            setToken(value);
-            navigate("HomeTab", { name: info.username });
+            setToken(token);
+            setWorker(name);
+            navigate("HomeTab");
             return
         }
     }

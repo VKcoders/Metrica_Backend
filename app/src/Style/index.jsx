@@ -4,9 +4,11 @@ import Historic from "./Screens/Historic";
 import Remainder from "./Screens/Remainder";
 import Announcement from "./Screens/Announcement";
 import Report from "./Screens/Report";
-
+import Home from "./Screens/Home";
 
 import Background from "./Components/Background";
+import Header from "./Components/Header";
+import Search from "./Components/Search";
 
 export const screens = {
     Cover,
@@ -15,5 +17,9 @@ export const screens = {
     Remainder,
     Announcement,
     Report,
-    Background
+    Home,
+    
+    Background,
+    Header,
+    Search
 };

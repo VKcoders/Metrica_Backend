@@ -1,4 +1,5 @@
 const strings = {
+     // Stack Screen
      Cover: {
           title: "Instituto ATESP",
           subtitle: "Análise e Pesquisa de Dados",
@@ -9,6 +10,7 @@ const strings = {
           password: ["Senha", "digite sua senha"],
           submitBtn: "Entrar"
      },
+     // Tab Screen
      Historic: {
           noHistory: "Entrevistador(a) sem histórico"
      },
@@ -26,6 +28,14 @@ const strings = {
           add: "Adicionar mais um ocorrência",
           remove: "Remover ocorrência",
           edit: "Editar ocorrência"
+     },
+     Home: {
+          component: {
+               greeetings: (name) => `Olá ${name}!`,
+               status: (num) => `${num.length == 1 ? "0" + num : num} pesquisa(s) pendentes.`,
+               region: (where) => `Região: ${where}`,
+               completion: (d, t, p) => `Status: ${d} / ${t} (${p}%)` 
+          }
      }
 };
 
