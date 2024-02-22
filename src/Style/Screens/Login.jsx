@@ -34,7 +34,7 @@ export default StyleSheet.create({
             fontWeight: "600",
             textAlign: "center"
         },
-        backgroundColor: "green",
+        backgroundColor: "gray",
         width: 100,
         padding: 10,
         marginTop: 20,

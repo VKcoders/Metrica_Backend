@@ -1,6 +1,6 @@
-import React from 'react';
-import Provider from './Context/Global'
-import Routes from './Routes'
+import React from "react";
+import Provider from "./Context/Global"
+import Routes from "./Routes"
 
 function App() {
   return (

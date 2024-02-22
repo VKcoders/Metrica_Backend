@@ -1,13 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { SafeAreaView, View, Text, TouchableOpacity, TextInput, KeyboardAvoidingView } from "react-native";
 
 import { screens as styles } from "../../Style";
 import { strings } from "../../Localized";
 
 function Login({route: { name }, navigation: { navigate }}) {
-    const [info, setInfo] = useState({username: null, password: null})
+    const [info, setInfo] = useState({username: '', password: ''});
+    const [canSubmit, setCanSubmit] = useState(false);
     const localized = strings[name];
     const css = styles[name];
+
+    useEffect(() => {
+        const {username, password} = info;
+
+        if (username.length > 4 && password.length > 4) {
+            setCanSubmit(true);
+            return;
+        }
+
+        setCanSubmit(false);
+    }, [info])
 
     const handleSubmit = () => {
         navigate("HomeTab", { info })
@@ -35,7 +47,7 @@ function Login({route: { name }, navigation: { navigate }}) {
             <KeyboardAvoidingView style={css.infoContainer} behavior="position">
                 { inputModel("username") }
                 { inputModel("password") }
-                <TouchableOpacity style={css.submitBtn} onPress={handleSubmit}>
+                <TouchableOpacity disabled={!canSubmit} style={[css.submitBtn, !!canSubmit && {backgroundColor: "#0096FF"}]} onPress={handleSubmit}>
                     <Text style={css.submitBtn.text}>{localized.submitBtn}</Text>
                 </TouchableOpacity>
             </KeyboardAvoidingView>

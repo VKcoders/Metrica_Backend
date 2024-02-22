@@ -1,10 +1,20 @@
 import { SafeAreaView, Text } from "react-native";
 
+import { screens as styles } from "../../Style";
+import { strings } from "../../Localized";
+
 function Historic({route: { name }, navigation: { navigate }}) {
-    return (
-        <SafeAreaView>
-            <Text>{name}</Text>
+    const localized = strings[name];
+    const css = styles[name];
+
+    const mock = false
+
+    return !mock ? (
+        <SafeAreaView style={css.noHistory}>
+            <Text style={css.noHistory.text}>{localized.notHistory}</Text>
         </SafeAreaView>
+    ) : (
+        <Text>Tem Historico</Text>
     )
 }
 
