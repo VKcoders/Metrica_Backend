@@ -1,6 +1,7 @@
 // Stack
 import Cover from "./Stack/Cover";
 import Login from "./Stack/Login";
+import Search from "./Stack/Search";
 // Tab
 import Home from "./Tab/Home";
 import Historic from "./Tab/Historic";
@@ -10,7 +11,8 @@ import Report from "./Tab/Report";
 
 export const stackScreens = {
     Cover,
-    Login
+    Login,
+    Search
 };
 
 export const tabScreens = {

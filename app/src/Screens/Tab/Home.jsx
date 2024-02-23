@@ -13,9 +13,9 @@ function Home({route: { name }, navigation: { navigate }}) {
             <ScrollView>
                 <Header />
                 <View style={css.bar} />
-                <Search total={200} done={50} />
-                <Search total={100} done={100} />
-                <Search total={300} done={230} />
+                <Search nav={navigate} total={200} done={50} />
+                <Search nav={navigate} total={100} done={100} />
+                <Search nav={navigate} total={300} done={230} />
             </ScrollView>
         </SafeAreaView>
     )

@@ -10,7 +10,13 @@ import Background from "./Components/Background";
 import Header from "./Components/Header";
 import Search from "./Components/Search";
 
+import Warning from "./Blocks/Warning";
+import Introduction from "./Blocks/Introduction";
+
+import NextBlock from "./Components/NextBlock"
+
 export const screens = {
+    // Screens
     Cover,
     Login,
     Historic,
@@ -18,8 +24,12 @@ export const screens = {
     Announcement,
     Report,
     Home,
-    
+    // Components
     Background,
     Header,
-    Search
+    Search,
+    NextBlock,
+    // Blocks
+    Warning,
+    Introduction
 };

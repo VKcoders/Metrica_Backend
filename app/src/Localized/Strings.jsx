@@ -36,7 +36,12 @@ const strings = {
                region: (where) => `Região: ${where}`,
                completion: (d, t, p) => `Status: ${d} / ${t} (${p}%)` 
           }
-     }
+     },
+     btns: {
+          confirm: "Concordar",
+          next: ""
+     },
+     Warning: "A entrevista é monitorada em prol da transparência e qualidade da informação.",
 };
 
 module.exports = strings;
