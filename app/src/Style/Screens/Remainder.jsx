@@ -34,7 +34,7 @@ export default StyleSheet.create({
         justifyContent:"center",
         alignItems: "center",
 
-        backgroundColor: "#6F8FAF",
+        backgroundColor: "#E1C16E",
         padding: 12,
         borderRadius: 10
     },

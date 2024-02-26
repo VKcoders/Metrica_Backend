@@ -8,7 +8,7 @@ const MMKV = new MMKVLoader().initialize();
 
 function GlobalState({children}) {
   const [cachedUser, setCachedUser] = useMMKVStorage("username", MMKV, null);
-  const [cachedPassword, setCachedPassword] = useMMKVStorage("password", MMKV, null); 
+  const [cachedPassword, setCachedPassword] = useMMKVStorage("password", MMKV, null);
   const [token, setToken] = useState(null);
   const [user, setUser] = useState({id: '', name: ''});
   const [currentSearch, setCurrentSearch] = useState([]);

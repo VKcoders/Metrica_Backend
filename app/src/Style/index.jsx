@@ -17,6 +17,7 @@ import Introduction from "./Blocks/Introduction";
 import Political from "./Blocks/Political";
 
 import LoginModal from "./Modal/Login";
+import RemainderModal from "./Modal/Remainder";
 
 import NextBlock from "./Components/NextBlock"
 
@@ -42,4 +43,5 @@ export const screens = {
     Political,
     // Modal
     LoginModal,
+    RemainderModal
 };

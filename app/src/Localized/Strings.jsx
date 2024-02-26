@@ -1,4 +1,6 @@
 const strings = {
+     Warning: "A entrevista é monitorada em prol da transparência e qualidade da informação.",
+
      // Stack Screen
      Cover: {
           title: "Instituto ATESP",
@@ -41,9 +43,12 @@ const strings = {
           confirm: "Concordar",
           next: ""
      },
-     Warning: "A entrevista é monitorada em prol da transparência e qualidade da informação.",
      Modal: {
-          Login: ["Usuário ou Senha inválido.", "Confirmar"]
+          Login: ["Usuário ou Senha inválido.", "Confirmar"],
+          RemainderModal: "Criar nota"
+     },
+     Alerts: {
+          RemainderCard: ["Confirmação", "Deseja deletar esta nota?", "Não", "Sim"]
      }
 };
 

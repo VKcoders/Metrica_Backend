@@ -5,7 +5,7 @@ export const theme = {
      ...DefaultTheme,
      colors: {
           primary: "rgb(0, 122, 255)",
-          background: "#D8D8D8",
+          background: "#cfcbcb",
           card: "rgb(255, 255, 255)",
           text: "rgb(28, 28, 30)",
           border: "rgb(216, 216, 216)",

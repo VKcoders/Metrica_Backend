@@ -1,13 +1,18 @@
-import { SafeAreaView, ScrollView, View } from "react-native";
+import { useEffect } from "react";
+
+import { SafeAreaView, ScrollView, View, BackHandler } from "react-native";
 
 import Background from "../../Components/Background";
 import { Header, Search } from "../../Components/Home";
 import { screens as styles } from "../../Style";
-// import { strings } from "../../Localized";
 
 function Home({route: { name }, navigation: { navigate }}) {
-    // const localized = strings[name];
     const css = styles[name];
+
+    useEffect(() => {
+        BackHandler.addEventListener('hardwareBackPress', () => true);
+        return () => BackHandler.removeEventListener('hardwareBackPress', () => true);
+    }, []);
 
     return (
         <>

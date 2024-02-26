@@ -1,4 +1,4 @@
-import {Modal, Text, Pressable, View, TouchableOpacity, ScrollView, Image} from 'react-native';
+import { Modal, Text, View, TouchableOpacity } from 'react-native';
 import { screens as styles } from "../Style";
 import { strings } from '../Localized';
 

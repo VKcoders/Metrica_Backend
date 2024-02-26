@@ -1,6 +1,6 @@
 import { useEffect, useContext } from "react";
 import { Global } from "../../Context";
-import { SafeAreaView, View, Text, TouchableOpacity, Image, BackHandler } from "react-native";
+import { SafeAreaView, View, Text, TouchableOpacity, Image } from "react-native";
 
 import { screens as styles } from "../../Style";
 import { strings, icons } from "../../Localized";
@@ -10,13 +10,6 @@ function Cover({route: { name }, navigation: { navigate }}) {
     const { token } = useContext(Global)
     const localized = strings[name];
     const css = styles[name];
-
-    useEffect(() => {
-        function RemoveBackHandler() {
-            BackHandler.addEventListener('hardwareBackPress', () => true);
-            }
-            RemoveBackHandler();
-    }, [])
 
     const handlePress = () => {
         if (!!token) {
