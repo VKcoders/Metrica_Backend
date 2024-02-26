@@ -12,6 +12,7 @@ import Search from "./Components/Search";
 
 import Warning from "./Blocks/Warning";
 import Introduction from "./Blocks/Introduction";
+import Political from "./Blocks/Political";
 
 import NextBlock from "./Components/NextBlock"
 
@@ -31,5 +32,6 @@ export const screens = {
     NextBlock,
     // Blocks
     Warning,
-    Introduction
+    Introduction,
+    Political
 };

@@ -1,5 +1,6 @@
 import { SafeAreaView, Text } from "react-native";
 
+import Background from "../../Components/Background";
 import { screens as styles } from "../../Style";
 import { strings } from "../../Localized";
 
@@ -10,11 +11,17 @@ function Historic({route: { name }, navigation: { navigate }}) {
     const mock = false
 
     return !mock ? (
-        <SafeAreaView style={css.noHistory}>
-            <Text style={css.noHistory.text}>{localized.noHistory}</Text>
-        </SafeAreaView>
+        <>
+            <Background index={"5"} />
+            <SafeAreaView style={css.noHistory}>
+                <Text style={css.noHistory.text}>{localized.noHistory}</Text>
+            </SafeAreaView>
+        </>
     ) : (
-        <Text>Tem Historico</Text>
+        <>
+            <Background index={"1"} />
+            <Text>Tem Historico</Text>
+        </>
     )
 }
 

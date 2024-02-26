@@ -24,8 +24,8 @@ export const options = {
                backgroundColor: "#6F8FAF",
                borderTopWidth: 0,
                height: Platform.OS === "ios" ? 90 : 65,
-               borderTopRightRadius: Platform.OS === "ios" ? 50 : 30,
-               borderTopLeftRadius: Platform.OS === "ios" ? 50 : 30
+               // borderTopRightRadius: Platform.OS === "ios" ? 50 : 30,
+               // borderTopLeftRadius: Platform.OS === "ios" ? 50 : 30
           }
      }
 };

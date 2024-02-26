@@ -6,8 +6,8 @@ const {url, prefix} = {
 }
 
 const api = axios.create({
-  // baseURL: url + prefix,
-  baseURL: "http://192.168.0.51:3002/pesquisa"
+  baseURL: url + prefix,
+  // baseURL: "http://192.168.0.51:3002/pesquisa"
 });
 
 export default api;

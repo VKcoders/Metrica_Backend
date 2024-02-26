@@ -1,20 +1,20 @@
 import { Text, View } from "react-native";
-import { NextBlock } from "../Bottons";
 
 import { screens as styles } from "../../Style";
 import { strings } from "../../Localized";
 import Background from "../../Components/Background";
+import { NextBlock } from "../Bottons";
 
-function Warning({nav, next}) {
+function Warning({nav, next, data}) {
     const css = styles["Warning"];
     const localized = strings["Warning"];
 
     return (
         <>
-            <Background index={"2"} />
+            <Background index={"4"} />
             <View style={css.container}>
                 <Text style={css.text}>{localized}</Text>
-                <NextBlock action={next} />
+                <NextBlock action={next} text={"Concordar"} />
             </View>
         </>
     )

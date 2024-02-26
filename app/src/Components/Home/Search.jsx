@@ -6,6 +6,7 @@ import { strings, icons } from "../../Localized";
 function Search({total, done, nav}) {
     const localized = strings["Home"].component;
     const css = styles["Search"];
+    
     const porcent = ((done / total) * 100).toFixed(0);
     const iconType = porcent <= 30 ? "atention" : (porcent < 100 ? "warning" : "done");
 

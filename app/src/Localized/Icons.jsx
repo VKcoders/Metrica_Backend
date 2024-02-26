@@ -16,6 +16,11 @@ const icons = {
      background: {
           1: require(path + "bg-01.png"),
           2: require(path + "bg-02.png"),
+          3: require(path + "bg-03.png"),
+          4: require(path + "bg-04.png"),
+          5: require(path + "bg-05.png"),
+          6: require(path + "bg-06.png"),
+          7: require(path + "bg-07.png"),
      },
      tab: {
           Home: require(path + "home.png"),
