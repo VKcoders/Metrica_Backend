@@ -42,6 +42,9 @@ const strings = {
           next: ""
      },
      Warning: "A entrevista é monitorada em prol da transparência e qualidade da informação.",
+     Modal: {
+          Login: ["Usuário ou Senha inválido.", "Confirmar"]
+     }
 };
 
 module.exports = strings;

@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
+import { Global } from "../../Context";
 import { SafeAreaView, View, Text, TouchableOpacity, Image, BackHandler } from "react-native";
 
 import { screens as styles } from "../../Style";
@@ -6,6 +7,7 @@ import { strings, icons } from "../../Localized";
 import Background from "../../Components/Background";
 
 function Cover({route: { name }, navigation: { navigate }}) {
+    const { token } = useContext(Global)
     const localized = strings[name];
     const css = styles[name];
 
@@ -16,7 +18,14 @@ function Cover({route: { name }, navigation: { navigate }}) {
             RemoveBackHandler();
     }, [])
 
-    const handlePress = () => navigate("Login");
+    const handlePress = () => {
+        if (!!token) {
+            navigate("HomeTab");
+            return
+        };
+        navigate("Login");
+        return
+    }
 
     return (
         <>

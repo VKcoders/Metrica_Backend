@@ -10,8 +10,7 @@ export const getAllUserNotes = async (userId, token) => {
         headers: { 'Authorization': token }
       }
     );
-
-    return data[0];
+    return data;
   } catch (error) {
     console.error(error);
   }

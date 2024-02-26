@@ -5,12 +5,14 @@ import { SafeAreaView, View, Text, TouchableOpacity, TextInput, KeyboardAvoiding
 import { screens as styles } from "../../Style";
 import { strings, icons } from "../../Localized";
 import Background from "../../Components/Background";
+import { Login as Modal } from "../../Modal";
 
 import { generateToken } from "../../Service/Token";
 
 function Login({route: { name }, navigation: { navigate }}) {
-    const { setToken, setWorker } = useContext(Global);   
+    const { setToken, setUser, setCachedUser, setCachedPassword } = useContext(Global);   
     const [info, setInfo] = useState({username: '', password: ''});
+    const [modal, setModal] = useState(false);
     const [hidePassword, setHidePassword] = useState(true);
     const [canSubmit, setCanSubmit] = useState(false);
     const localized = strings[name];
@@ -25,47 +27,54 @@ function Login({route: { name }, navigation: { navigate }}) {
         }
 
         setCanSubmit(false);
-    }, [info])
+    }, [info]);
 
     const handleSubmit = async () => {
-        const { status, token, name } = await generateToken(info);
+        const { status, token, name, id } = await generateToken(info);
 
         if (!!status) {
+            setCachedUser(info.username);
+            setCachedPassword(info.password);
             setToken(token);
-            setWorker(name);
+            setUser({id, name});
             navigate("HomeTab");
             return
         }
+
+        setModal(true);
     }
 
     const inputModel = (type) => {
-        
         const handleChange = (value) => setInfo(p => ({...p, [type]: value}));
 
         return (
-            <View style={css.input}>
-                <Text style={css.input.text}>{localized[type][0]}</Text>
-                <View style={css.input.innerContainer}>
-                    <TextInput
-                        style={css.input.value}
-                        placeholder={localized[type][1]}
-                        onChangeText={handleChange}
-                        placeholderTextColor="rgba(0, 0, 0, 0.2)"
+            <>
+                <Modal show={modal} action={setModal} reset={setInfo} />
+                <View style={css.input}>
+                    <Text style={css.input.text}>{localized[type][0]}</Text>
+                    <View style={css.input.innerContainer}>
+                        <TextInput
+                            value={info[type]}
+                            style={css.input.value}
+                            placeholder={localized[type][1]}
+                            onChangeText={handleChange}
+                            placeholderTextColor="rgba(0, 0, 0, 0.2)"
 
-                        secureTextEntry={type === "password" ? hidePassword : false}
-                    />
-                    {
-                        type === "password" && (
-                            <TouchableOpacity onPress={() => setHidePassword(!hidePassword)}>
-                                <Image
-                                    style={css.input.icon}
-                                    source={icons.lock[!hidePassword ? "open" : "close"]}
-                                />
-                            </TouchableOpacity>
-                        )
-                    }
+                            secureTextEntry={type === "password" ? hidePassword : false}
+                        />
+                        {
+                            type === "password" && (
+                                <TouchableOpacity onPress={() => setHidePassword(!hidePassword)}>
+                                    <Image
+                                        style={css.input.icon}
+                                        source={icons.lock[!hidePassword ? "open" : "close"]}
+                                    />
+                                </TouchableOpacity>
+                            )
+                        }
+                    </View>
                 </View>
-            </View>
+            </>
         )
     }
 

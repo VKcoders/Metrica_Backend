@@ -1,11 +1,23 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-    noNotes: {
+    note: {
         flex: 1,
+        backgroundColor: "#F3E5AB"
+    },
+    add: {
+        icon: {
+            width: 30,
+            height: 30,
+            tintColor: "white",
+            alignSelf: "center"
+        },
+        backgroundColor: "#E1C16E",
+        padding: 6
+    },
+    noNotes: {
         justifyContent:"center",
         alignItems: "center",
-        backgroundColor: "#F3E5AB"
     },
     newNote: {
         text: {
@@ -25,5 +37,6 @@ export default StyleSheet.create({
         backgroundColor: "#6F8FAF",
         padding: 12,
         borderRadius: 10
-    }
+    },
+
 })
