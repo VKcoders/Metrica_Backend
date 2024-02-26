@@ -5,8 +5,9 @@ const URL = '/login'
 
 export const generateToken = async (obj) => {
   try {
-    const { data: {name, token} } = await api.post(URL, obj);
-    return {status: true, name, token}; 
+    const { data } = await api.post(URL, obj);
+    console.log(data)
+    // return {status: true, name, token}; 
   } catch (error) {
     const errorResult = hooks.RequestError(error)
     if (errorResult === undefined) return {status: false, value: ""};
