@@ -34,9 +34,10 @@ const strings = {
      Home: {
           component: {
                greeetings: (name) => `Olá ${name}!`,
-               status: (num) => `${num.length == 1 ? "0" + num : num} pesquisa(s) pendentes.`,
+               status: (num) => `${num.length == 1 ? "0" + num : num} pesquisa${num > 1 ? "s" : ""} pendente${num > 1 ? "s" : ""}.`,
                region: (where) => `Região: ${where}`,
-               completion: (d, t, p) => `Status: ${d} / ${t} (${p}%)` 
+               completion: (d, t) => `Status: ${d} / ${t}`,
+               porcent: (p) => `${p}%`
           }
      },
      btns: {
