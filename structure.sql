@@ -143,11 +143,15 @@ CREATE TABLE introduction_sections (
 
 CREATE TABLE searches (
   id INT NOT NULL AUTO_INCREMENT,
+  client_id INT NOT NULL,
   introduction INT NOT NULL,
   search INT NOT NULL,
-  qtd INT NOT NULL,
+  qtd_users INT NOT NULL,
+  users_meta INT NOT NULL,
+  total INT NOT NULL,
 
   PRIMARY KEY (id),
+  FOREIGN KEY (client_id) REFERENCES clients(id),
   FOREIGN KEY (introduction) REFERENCES introduction_sections(id),
   FOREIGN KEY (search) REFERENCES search_sections(id)
 );
@@ -155,16 +159,11 @@ CREATE TABLE searches (
 CREATE TABLE user_searches (
   id INT NOT NULL AUTO_INCREMENT,
   user_id INT NOT NULL,
-  client_id INT NOT NULL,
   search_id INT NOT NULL,
   qtd_done INT NOT NULL DEFAULT 0,
   qtd_goal INT NOT NULL,
 
   PRIMARY KEY (id),
   FOREIGN KEY (user_id) REFERENCES users(id),
-  FOREIGN KEY (client_id) REFERENCES clients(id),
   FOREIGN KEY (search_id) REFERENCES searches(id)
 );
-
-
-
