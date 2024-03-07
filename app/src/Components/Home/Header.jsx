@@ -16,7 +16,11 @@ function Header({pendent}) {
             <View style={css.status}>
                 <Text style={css.status.title}>{localized.greeetings(user.name)}</Text>
                 {
-                    pendent !== 0 &&  <Text style={css.status.subtitle}>{localized.status(pendent)}</Text>
+                    pendent !== 0 ? (
+                        <Text style={css.status.subtitle}>{localized.status(pendent)}</Text>
+                    ) :(
+                        <Text style={css.status.subtitle}>{localized.noSearch}</Text>
+                    ) 
                 }
             </View>
         </View>

@@ -4,6 +4,7 @@ import { SafeAreaView, View, Text, TouchableOpacity, TextInput, KeyboardAvoiding
 
 import { screens as styles } from "../../Style";
 import { strings, icons } from "../../Localized";
+import Loader from "../../Components/Loader";
 import Background from "../../Components/Background";
 import { Login as Modal } from "../../Modal";
 
@@ -11,6 +12,7 @@ import { generateToken } from "../../Service/Token";
 
 function Login({route: { name }, navigation: { navigate }}) {
     const { setToken, setUser, setCachedUser, setCachedPassword } = useContext(Global);   
+    const [loader, setLoader] = useState(false);
     const [info, setInfo] = useState({username: '', password: ''});
     const [modal, setModal] = useState(false);
     const [hidePassword, setHidePassword] = useState(true);
@@ -30,6 +32,7 @@ function Login({route: { name }, navigation: { navigate }}) {
     }, [info]);
 
     const handleSubmit = async () => {
+        setLoader(true);
         const { status, token, name, id } = await generateToken(info);
 
         if (!!status) {
@@ -38,9 +41,11 @@ function Login({route: { name }, navigation: { navigate }}) {
             setToken(token);
             setUser({id, name});
             navigate("HomeTab");
+            setLoader(false);
             return
         }
 
+        setLoader(false);
         setModal(true);
     }
 
@@ -78,7 +83,12 @@ function Login({route: { name }, navigation: { navigate }}) {
         )
     }
 
-    return (
+    return loader ? (
+        <>
+            <Background index={"2"} />
+            <Loader />
+        </>
+    ) : (
         <>
             <Background index={"2"} />
             <SafeAreaView style={css.screen}>

@@ -35,6 +35,7 @@ const strings = {
           component: {
                greeetings: (name) => `Olá ${name}!`,
                status: (num) => `${num.length == 1 ? "0" + num : num} pesquisa${num > 1 ? "s" : ""} pendente${num > 1 ? "s" : ""}.`,
+               noSearch: "Sem pesquisas pendentes",
                region: (where) => `Região: ${where}`,
                completion: (d, t) => `Status: ${d} / ${t}`,
                porcent: (p) => `${p}%`
