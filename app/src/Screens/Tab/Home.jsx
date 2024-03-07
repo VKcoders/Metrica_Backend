@@ -7,7 +7,7 @@ import { Header, Search } from "../../Components/Home";
 import { screens as styles } from "../../Style";
 import { icons } from "../../Localized";
 
-import { getAllStatus } from "../../Service/User";
+// import { getAllStatus } from "../../Service/User";
 
 function Home({route: { name }, navigation: { navigate }}) {
     const [list, setList] = useState([]);
@@ -17,13 +17,13 @@ function Home({route: { name }, navigation: { navigate }}) {
     const css = styles[name];
 
     useEffect(() => {
-        async function Jobs() {
-            const statusData = await getAllStatus(id, token);
-            const filterPendent = statusData.filter(search => search.qtd_done !== search.qtd_goal);
-            setList(statusData);
-            setPendent(filterPendent.length);
-        }
-        Jobs()
+        // async function Jobs() {
+        //     const statusData = await getAllStatus(id, token);
+        //     const filterPendent = statusData.filter(search => search.qtd_done !== search.qtd_goal);
+        //     setList(statusData);
+        //     setPendent(filterPendent.length);
+        // }
+        // Jobs()
         
         BackHandler.addEventListener('hardwareBackPress', () => true);
         return () => BackHandler.removeEventListener('hardwareBackPress', () => true);
