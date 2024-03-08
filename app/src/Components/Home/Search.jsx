@@ -11,7 +11,7 @@ function Search({data, nav}) {
     const porcent = ((done / goal) * 100).toFixed(0);
     const iconType = porcent <= 30 ? "atention" : (porcent < 100 ? "warning" : "done");
 
-    const handlePress = () => nav("Search");
+    const handlePress = () => nav("Search", { searchId: id });
 
     return (
         <TouchableOpacity style={css.container} onPress={handlePress}>

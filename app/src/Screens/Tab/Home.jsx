@@ -19,7 +19,6 @@ function Home({route: { name }, navigation: { navigate }}) {
     useEffect(() => {
         async function Jobs() {
             const listData = await getSearchsByUsers(id, token);
-            console.log(listData)
             const filterDone = listData.filter(({done, goal}) => done === goal);
             const filterPendent = listData.filter(({done, goal}) => done !== goal);
             

@@ -4,7 +4,9 @@ import Block from "../../Components/Blocks";
 
 // import { getAllSearchs } from "../../Service/Search";
 
-function Search({navigation: { navigate }}) {
+function Search({navigation: { navigate }, route: {params}}) {
+    
+    console.log(params)
     const { token } = useContext(Global);
     const [index, setIndex] = useState(0);
 
