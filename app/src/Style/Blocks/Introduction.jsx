@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
     container: {
@@ -32,6 +32,24 @@ export default StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         marginBottom: 10
+    },
+    content: {
+        text: {
+            color: "black",
+            fontWeight: "500",
+            fontSize: 20,
+            textAlign: "center"
+        },
+        input: {
+            marginTop: 25,
+            backgroundColor: "red",
+            width: "100%"
+        },
+        flexGrow: 1,
+        padding: 20,
+        justifyContent: "center",
+        alignItems: "center",
+        marginBottom: 100
     },
     btn: {
         marginBottom: 35,

@@ -5,7 +5,7 @@ import { strings } from "../../Localized";
 import Background from "../Background";
 import { NextBlock } from "../Bottons";
 
-function Warning({ next  }) {
+function Warning({ next }) {
     const css = styles["Warning"];
     const localized = strings["Warning"];
 

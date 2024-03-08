@@ -2,15 +2,25 @@ import React, { useState, useEffect, useContext } from "react";
 import { Global } from "../../Context";
 import Block from "../../Components/Blocks";
 
-// import { getAllSearchs } from "../../Service/Search";
+import Loader from "../../Components/Loader"
+
+import { getSearchById } from "../../Service/Search";
 
 function Search({navigation: { navigate }, route: {params}}) {
-    
-    console.log(params)
     const { token } = useContext(Global);
+    const [searchInfo, setSearchInfo] = useState({});
     const [index, setIndex] = useState(0);
-
+    const [loader, setLoader] = useState(true);
     const pipeline = ["Warning", "Introduction", "Questions"];
+
+    useEffect(() => {
+        async function Jobs() {
+            const data = await getSearchById(params.searchId, token);
+            setSearchInfo(data);
+            setLoader(false)
+        };
+        Jobs()
+    }, [])
 
     const handleNext = () => {
         if (pipeline.length === index + 1) {
@@ -23,7 +33,16 @@ function Search({navigation: { navigate }, route: {params}}) {
 
     const DynamicComponent = Block[pipeline[index]];
 
-    return <DynamicComponent next={handleNext} token={token} />;
-}
+    return !!loader ? (
+        <Loader />
+    ) : (
+        <DynamicComponent 
+            next={handleNext} 
+            introId={searchInfo.introduction} 
+            questionId={searchInfo.search}
+            token={token}
+        />
+    ) 
+};
 
 export default Search;

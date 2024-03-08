@@ -11,16 +11,42 @@ export const getAllSearchs = async (token) => {
       }
     );
 
-    // const jsonString = "{\"q01\": \"A entrevista é monitorada em prol da transparência e qualidade da informação.\", \"q02\": \"\"}";
-    // const objeto = JSON.parse(jsonString);
-    // console.log(objeto);
-
     return data[0];
   } catch (error) {
     console.error(error);
   }
 };
 
+export const getSearchById = async (id, token) => {
+  try {
+    const { data } = await api.get(
+      `${ENDPOINT}/${id}`,
+      {
+        headers: { 'Authorization': token }
+      }
+    );
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export const getSearchIntro = async (id, token) => {
+  try {
+    const { data } = await api.get(
+      `${ENDPOINT}/intro/${id}`,
+      {
+        headers: { 'Authorization': token }
+      }
+    );
+
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 export default {
-  getAllSearchs
+  getAllSearchs,
+  getSearchById
 }
