@@ -1,18 +1,21 @@
+import { useState } from "react";
+
 import { Text, View } from "react-native";
 
 import { screens as styles } from "../../Style";
-import Background from "../../Components/Background";
+import Background from "../Background";
 import { NextBlock } from "../Bottons";
 
-function Introduction({ next }) {
-    const css = styles["Introduction"];
+function Questions({ next }) {
+    const css = styles["Political"];
 
     return (
         <>
-            <Background index={"2"} />
+            <Background index={"1"} />
             <View style={css.container}>
-                <Text style={css.title}>Informação Pessoais</Text>
-       
+                <Text style={css.title}>Perguntas</Text>
+
+
                 <View style={css.btn}>
                     <NextBlock action={next} text={"Proximo"} />
                 </View>
@@ -21,4 +24,4 @@ function Introduction({ next }) {
     )
 }
 
-export default Introduction;
+export default Questions;

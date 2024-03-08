@@ -1,9 +1,9 @@
 import Warning from "./Warning";
 import Introduction from "./Introduction";
-import Political from "./Political";
+import Questions from "./Questions";
 
 export default { 
     Warning,
     Introduction,
-    Political
+    Questions
  };
