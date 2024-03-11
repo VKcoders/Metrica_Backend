@@ -1,10 +1,45 @@
-import { Text } from "react-native";
+import { useState, useEffect } from "react";
+import { Text, TouchableOpacity, View } from "react-native";
 
-function SelectionText() {
+import { screens as styles } from "../../../Style";
+
+function SelectionText({ data, next, action }) {
+    const [options, setOptions] = useState([]);
+    const [selected, setSelected] = useState(false);
+    
+    const css = styles["SelectionText"];
+    
+    useEffect(() => {
+        const array = data.split(',');
+        setOptions(array);
+    }, []);
+
+    const handlePress = (key, text) => {
+        action(text);
+        if (key === selected) {
+            next.func();
+            return;
+        }
+        setSelected(key);
+    }
+
     return (
-        <Text>
-            SelectionText
-        </Text>
+        <View style={css.constainer}>
+            {
+                options.map((text, index) => {
+                    const key = "question-" + index;
+                    return (
+                        <TouchableOpacity 
+                            key={key}
+                            style={[css.btn, key === selected && {backgroundColor: "green"}]}
+                            onPress={() => handlePress(key, text)}
+                        >
+                            <Text style={css.btn.text}>{text}</Text>
+                        </TouchableOpacity>
+                    )
+                })
+            }
+        </View>
     )
 }
 

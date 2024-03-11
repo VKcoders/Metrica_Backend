@@ -14,10 +14,14 @@ import NoRemainderCard from "./Components/NoRemainderCard";
 
 import Warning from "./Blocks/Warning";
 import Introduction from "./Blocks/Introduction";
-import Political from "./Blocks/Political";
+import Question from "./Blocks/Question";
 
 import LoginModal from "./Modal/Login";
 import RemainderModal from "./Modal/Remainder";
+
+import NormalText from "./AnswerType/NormalText";
+import SelectionText from "./AnswerType/SelectionText";
+import SelectionDegree from "./AnswerType/SelectionDegree";
 
 import NextBlock from "./Components/NextBlock"
 
@@ -40,8 +44,12 @@ export const screens = {
     // Blocks
     Warning,
     Introduction,
-    Political,
+    Question,
     // Modal
     LoginModal,
-    RemainderModal
+    RemainderModal,
+    // Answer Type
+    NormalText,
+    SelectionDegree,
+    SelectionText
 };

@@ -1,11 +1,20 @@
-import { Text } from "react-native";
+import { TextInput } from "react-native";
+import { screens as styles } from "../../../Style";
 
-function NormalText({data}) {
-    console.log(data)
+import { NextBlock } from "../../Bottons";
+
+function NormalText({ action, next }) {
+    const css = styles["NormalText"];
+
     return (
-        <Text>
-            TEXTO
-        </Text>
+        <>
+            <TextInput 
+                style={css.textInput}
+                placeholder="resposta..."
+                onChangeText={action}
+            />
+            <NextBlock action={next.func} text={next.text} />
+        </>
     )
 }
 

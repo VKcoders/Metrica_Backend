@@ -38,7 +38,8 @@ export default StyleSheet.create({
             color: "black",
             fontWeight: "500",
             fontSize: 20,
-            textAlign: "center"
+            textAlign: "center",
+            marginBottom: 20
         },
         input: {
             marginTop: 25,

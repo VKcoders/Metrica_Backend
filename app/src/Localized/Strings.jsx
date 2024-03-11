@@ -1,6 +1,6 @@
 const strings = {
      Warning: "A entrevista é monitorada em prol da transparência e qualidade da informação.",
-
+     Degrees: ["Péssimo", "Médio", "Ótimo"],
      // Stack Screen
      Cover: {
           title: "Instituto ATESP",

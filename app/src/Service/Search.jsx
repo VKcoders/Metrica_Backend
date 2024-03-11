@@ -39,7 +39,20 @@ export const getSearchIntro = async (id, token) => {
         headers: { 'Authorization': token }
       }
     );
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
 
+export const getSearchMain = async (id, token) => {
+  try {
+    const { data } = await api.get(
+      `${ENDPOINT}/question/${id}`,
+      {
+        headers: { 'Authorization': token }
+      }
+    );
     return data;
   } catch (error) {
     console.error(error);

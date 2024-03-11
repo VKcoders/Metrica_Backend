@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import { Text, View, TextInput } from "react-native";
+import { Text, View, KeyboardAvoidingView } from "react-native";
 
 import { screens as styles } from "../../Style";
 import Background from "../../Components/Background";
 import Loader from "../../Components/Loader";
-import { NextBlock } from "../Bottons";
 
 import AnswerType from "./AnswerType";
 
@@ -12,9 +11,13 @@ import { getSearchIntro } from "../../Service/Search";
 
 function Introduction({ next, introId, token }) {
     const [blockData, setBlockData] = useState({});
+    const [blockAnswer, setBlockAnswer] = useState([]);
+    const [currentAnswer, setCurrentAnswer] = useState('');
+
     const [keys, setKeys] = useState([]);
     const [blockIndex, setBlockIndex] = useState(0);
     const [loader, setLoader] = useState(true);
+
     const css = styles["Introduction"];
     
     useEffect(() => {
@@ -29,8 +32,22 @@ function Introduction({ next, introId, token }) {
     }, []);
 
     const handleNextInBlock = () => {
-        setBlockIndex(blockIndex + 1)
+        const toSaveOnBlock = {
+            id: blockIndex + 1,
+            text: currentAnswer
+        };
+
+        setBlockAnswer(prev => ([...prev, toSaveOnBlock]));
+
+        if (blockIndex + 1 >= keys.length) {
+            // console.log(blockAnswer)
+            next();
+            return;
+        }
+
+        setBlockIndex(blockIndex + 1);
     }
+
 
     return !!loader ? (
         <>
@@ -40,24 +57,21 @@ function Introduction({ next, introId, token }) {
     ) : (
         <>
             <Background index={"2"} />
-            <View style={css.container}>
+            <KeyboardAvoidingView style={css.container} behavior="height">
                 <Text style={css.title}>Informação Pessoais</Text>
-                <View style={css.content}>
-                    <Text style={css.content.text}>{blockData[keys[blockIndex]].question}</Text>
-                    <AnswerType type={blockData[keys[blockIndex]].type} questionInfo={blockData[keys[blockIndex]]} />
-                </View>
-                {
-                    blockIndex + 1 < keys.length ? (
-                        <View style={css.btn}>
-                            <NextBlock action={handleNextInBlock} text={"Proximo"} />
-                        </View>
-                    ) : (
-                        <View style={css.btn}>
-                            <NextBlock action={next} text={"Salvar"} />
-                        </View>
-                    )
-                }
-            </View>
+                    <View style={css.content}>
+                        <Text style={css.content.text}>{blockData[keys[blockIndex]].question}</Text>
+                        <AnswerType
+                            next={{
+                                func: handleNextInBlock,
+                                text: (blockIndex + 1 < keys.length) ? "Próximo" : "Salvar"
+                            }}
+                            saveAnswer={setCurrentAnswer}
+                            type={blockData[keys[blockIndex]].type}
+                            questionInfo={blockData[keys[blockIndex]]}
+                        />
+                    </View>
+            </KeyboardAvoidingView>
         </>
     )
 }
