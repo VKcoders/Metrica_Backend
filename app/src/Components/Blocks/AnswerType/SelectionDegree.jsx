@@ -6,10 +6,11 @@ import { NextBlock } from "../../Bottons";
 import { strings } from "../../../Localized";
 
 function SelectionDegree({data, next}) {
-    const [selected, setSelected] = useState(3);
+    const [selected, setSelected] = useState();
     const css = styles["SelectionDegree"];
     const localized = strings.Degrees;
 
+    // console.log(data) /// vir como array e implementar
 
     return (
         <>

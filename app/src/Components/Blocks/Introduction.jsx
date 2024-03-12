@@ -10,6 +10,7 @@ import AnswerType from "./AnswerType";
 import { getSearchIntro } from "../../Service/Search";
 
 function Introduction({ next, introId, token }) {
+    const [updataRender, setUpdataRender] = useState(false);
     const [blockData, setBlockData] = useState({});
     const [blockAnswer, setBlockAnswer] = useState([]);
     const [currentAnswer, setCurrentAnswer] = useState('');
@@ -32,6 +33,8 @@ function Introduction({ next, introId, token }) {
     }, []);
 
     const handleNextInBlock = () => {
+        setUpdataRender(!updataRender);
+
         const toSaveOnBlock = {
             id: blockIndex + 1,
             text: currentAnswer
@@ -40,7 +43,6 @@ function Introduction({ next, introId, token }) {
         setBlockAnswer(prev => ([...prev, toSaveOnBlock]));
 
         if (blockIndex + 1 >= keys.length) {
-            // console.log(blockAnswer)
             next();
             return;
         }
@@ -68,7 +70,7 @@ function Introduction({ next, introId, token }) {
                             }}
                             saveAnswer={setCurrentAnswer}
                             type={blockData[keys[blockIndex]].type}
-                            questionInfo={blockData[keys[blockIndex]]}
+                            questionInfo={{ counter: blockIndex, ...blockData[keys[blockIndex]]}}
                         />
                     </View>
             </KeyboardAvoidingView>

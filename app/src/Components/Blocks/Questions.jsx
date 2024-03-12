@@ -68,7 +68,7 @@ function Questions({ next, questionId, token }) {
                             }}
                             saveAnswer={setCurrentAnswer}
                             type={blockData[keys[blockIndex]].type}
-                            questionInfo={blockData[keys[blockIndex]]}
+                            questionInfo={{ counter: blockIndex, ...blockData[keys[blockIndex]]}}
                         />
                     </View>
             </KeyboardAvoidingView>

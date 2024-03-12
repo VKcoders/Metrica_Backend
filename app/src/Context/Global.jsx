@@ -20,7 +20,7 @@ function GlobalState({children}) {
         password: cachedPassword
       });
 
-      if (!getTokenFromCache.status) return
+      if (!getTokenFromCache.status) return '';
 
       setToken(getTokenFromCache.token);
       setUser({
@@ -29,8 +29,11 @@ function GlobalState({children}) {
       })
     }
     if (cachedUser !== null || cachedPassword !== null) {
-      Jobs()
+      Jobs();
+      return;
     }
+
+    setToken("");
   }, [])
 
   const obj = {
