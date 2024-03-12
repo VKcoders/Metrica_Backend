@@ -10,12 +10,12 @@ function SelectionText({ data, next, action }) {
     const css = styles["SelectionText"];
     
     useEffect(() => {
-        const array = data.split(',');
+        const array = data.answer.split(',');
         setOptions(array);
     }, []);
 
     const handlePress = (key, text) => {
-        action(text);
+        action({ id: data.question_id, value: text });
         if (key === selected) {
             next.func();
             return;

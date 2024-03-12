@@ -7,7 +7,7 @@ import Loader from "../../Components/Loader"
 import { getSearchById } from "../../Service/Search";
 
 function Search({navigation: { navigate }, route: {params}}) {
-    const { token } = useContext(Global);
+    const { token, user: {id} } = useContext(Global);
     const [searchInfo, setSearchInfo] = useState({});
     const [index, setIndex] = useState(0);
     const [loader, setLoader] = useState(true);
@@ -41,6 +41,8 @@ function Search({navigation: { navigate }, route: {params}}) {
             introId={searchInfo.introduction} 
             questionId={searchInfo.search}
             token={token}
+            userId={id}
+            searchId={params.searchId}
         />
     ) 
 };

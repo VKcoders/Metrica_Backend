@@ -9,12 +9,13 @@ import Loader from "../../Components/Loader";
 import AnswerType from "./AnswerType";
 
 import { getSearchMain } from "../../Service/Search";
+import { updateCurrentBlock } from "../../Service/SearchUpdate";
 
-function Questions({ next, questionId, token }) {
+function Questions({ next, questionId, token, userId, searchId }) {
     const [blockData, setBlockData] = useState({});
+    const [clientId, setClientId] = useState(0);
     const [blockAnswer, setBlockAnswer] = useState([]);
     const [currentAnswer, setCurrentAnswer] = useState('');
-
     const [keys, setKeys] = useState([]);
     const [blockIndex, setBlockIndex] = useState(0);
     const [loader, setLoader] = useState(true);
@@ -24,6 +25,7 @@ function Questions({ next, questionId, token }) {
     useEffect(() => {
         async function Jobs() {
             const data = await getSearchMain(questionId, token);
+            setClientId(data.client_id);
             const paramkeys = Object.keys(data).slice(1)
             setKeys(paramkeys);
             setBlockData(data);
@@ -35,14 +37,26 @@ function Questions({ next, questionId, token }) {
     const handleNextInBlock = () => {
         const toSaveOnBlock = {
             id: blockIndex + 1,
-            text: currentAnswer
+            questionId: currentAnswer.id,
+            text: currentAnswer.value
         };
 
         setBlockAnswer(prev => ([...prev, toSaveOnBlock]));
 
         if (blockIndex + 1 >= keys.length) {
-            // console.log(blockAnswer)
+            setLoader(true);
+            updateCurrentBlock(
+                {
+                    clientId,
+                    userId: userId,
+                    blockName: "question",
+                    searchId,
+                    result: [...blockAnswer, toSaveOnBlock],
+                },
+                token
+            )
             next();
+            setLoader(false);
             return;
         }
 
