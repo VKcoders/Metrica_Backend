@@ -4,7 +4,7 @@ import { screens as styles } from "../../Style";
 import { strings, icons } from "../../Localized";
 
 function Search({data, nav}) {
-    const { done, goal, search: id } = data
+    const { done, goal, search: id } = data;
     const localized = strings["Home"].component;
     const css = styles["Search"];
     
@@ -14,7 +14,7 @@ function Search({data, nav}) {
     const handlePress = () => nav("Search", { searchId: id });
 
     return (
-        <TouchableOpacity style={css.container} onPress={handlePress}>
+        <TouchableOpacity disabled={nav === null} style={css.container} onPress={handlePress}>
             <View style={css.containerUp}>
                 <View>
                     <Text style={css.text}>{localized.completion(done, goal)}</Text>
@@ -24,7 +24,6 @@ function Search({data, nav}) {
                     source={icons.status[iconType]}
                 />
             </View>
-
             {
                 porcent > 0 && (
                     <View style={[css.containerDown, {width: porcent > 10 ? `${localized.porcent(porcent)}` : "10%"}]}> 
@@ -32,7 +31,6 @@ function Search({data, nav}) {
                     </View>
                 ) 
             }
-
         </TouchableOpacity>
     )
 }

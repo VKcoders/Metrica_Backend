@@ -5,6 +5,7 @@ const icons = {
      add: require(path + "add.png"),
      avatar: require(path + "avatar.png"),
      reload: require(path + "reload.png"),
+     logo: require(path + "Logo.png"),
      status: {
           done: require(path + "done.png"),
           warning: require(path + "warning.png"),
