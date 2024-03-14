@@ -7,21 +7,21 @@ import { strings, icons } from "../../Localized";
 import Background from "../../Components/Background";
 
 function Cover({route: { name }, navigation: { navigate }}) {
-    const [load, setLoad] = useState(true);
-    const { token } = useContext(Global);
+    // const [load, setLoad] = useState(true);
+    // const { token } = useContext(Global);
     const localized = strings[name];
     const css = styles[name];
 
-    useEffect(() => {
-        if (token === null) return;
-        setLoad(false);
-    }, [token]);
+    // useEffect(() => {
+    //     if (token === null) return;
+    //     setLoad(false);
+    // }, [token]);
 
     const handlePress = () => {
-        if (!!token) {
-            navigate("HomeTab");
-            return;
-        };
+        // if (!!token) {
+        //     navigate("HomeTab");
+        //     return;
+        // };
         navigate("Login");
         return;
     };
@@ -35,12 +35,12 @@ function Cover({route: { name }, navigation: { navigate }}) {
                     <Text style={css.textContainer.subtitle}>{localized.subtitle}</Text>
                 </View>
                 {
-                    !load && (
+                    // !load && (
                         <TouchableOpacity style={css.continueBtn} onPress={handlePress}>
                             <Text style={css.continueBtn.text}>{localized.continue[0]}</Text>
                             <Image style={css.continueBtn.image} source={icons.arrow} alt={localized.continue[1]} />
                         </TouchableOpacity>
-                    )
+                    // )
                 }
             </SafeAreaView>
         </>

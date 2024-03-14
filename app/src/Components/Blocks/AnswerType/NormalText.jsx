@@ -24,7 +24,8 @@ function NormalText({ action, next, data }) {
                 placeholder="resposta..."
                 onChangeText={handleChange}
             />
-            { !!canSubmit && <NextBlock action={next.func} text={next.text} /> }
+            {/* { !!canSubmit && <NextBlock action={next.func} text={next.text} /> } */}
+            <NextBlock action={next.func} text={next.text} />
         </>
     )
 }

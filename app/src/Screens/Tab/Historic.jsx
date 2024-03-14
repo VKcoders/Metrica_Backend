@@ -1,5 +1,4 @@
-import { useCallback, useContext, useState } from "react";
-import { useFocusEffect } from '@react-navigation/native';
+import { useContext } from "react";
 import { Global } from "../../Context";
 import { SafeAreaView, ScrollView, Text } from "react-native";
 
@@ -12,12 +11,6 @@ function Historic({ route: { name } }) {
     const { history } = useContext(Global);
     const localized = strings[name];
     const css = styles[name];
-
-    useFocusEffect(
-        useCallback(() => {
-            console.log(history)
-        }, [])
-    );
 
     return history.length === 0 ? (
         <>

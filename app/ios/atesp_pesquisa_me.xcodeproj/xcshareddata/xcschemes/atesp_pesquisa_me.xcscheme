@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "atesp_pesquisa_me.app"
-               BlueprintName = "atesp_pesquisa_me"
-               ReferencedContainer = "container:atesp_pesquisa_me.xcodeproj">
+               BuildableName = "pesquisame.app"
+               BlueprintName = "pesquisame"
+               ReferencedContainer = "container:pesquisame.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "atesp_pesquisa_meTests.xctest"
-               BlueprintName = "atesp_pesquisa_meTests"
-               ReferencedContainer = "container:atesp_pesquisa_me.xcodeproj">
+               BuildableName = "pesquisameTests.xctest"
+               BlueprintName = "pesquisameTests"
+               ReferencedContainer = "container:pesquisame.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "atesp_pesquisa_me.app"
-            BlueprintName = "atesp_pesquisa_me"
-            ReferencedContainer = "container:atesp_pesquisa_me.xcodeproj">
+            BuildableName = "pesquisame.app"
+            BlueprintName = "pesquisame"
+            ReferencedContainer = "container:pesquisame.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "atesp_pesquisa_me.app"
-            BlueprintName = "atesp_pesquisa_me"
-            ReferencedContainer = "container:atesp_pesquisa_me.xcodeproj">
+            BuildableName = "pesquisame.app"
+            BlueprintName = "pesquisame"
+            ReferencedContainer = "container:pesquisame.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -1,13 +1,13 @@
 {
-  "name": "atesp_pesquisa_me",
-  "version": "0.0.1",
+  "name": "pesquisa-me",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "postversion": "react-native-version"
   },
   "dependencies": {
     "@react-native-async-storage/root": "github:react-native-async-storage/async-storage",
@@ -38,6 +38,7 @@
     "eslint": "^8.19.0",
     "jest": "^29.6.3",
     "prettier": "2.8.8",
+    "react-native-version": "^4.0.0",
     "react-test-renderer": "18.2.0",
     "typescript": "5.0.4"
   },

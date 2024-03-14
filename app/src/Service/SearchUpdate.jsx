@@ -13,8 +13,6 @@ export const updateCurrentBlock = async (data, token) => {
     searchId: !searchId ? 0 : searchId
   }
 
-  // console.log(obj)
-
   try {
     const { data } = await api.post(
       ENDPOINT,

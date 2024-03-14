@@ -37,7 +37,8 @@ function SelectionDegree({data, next, action}) {
                     })
                 }
             </View>
-            { !!selected && <NextBlock action={next.func} text={next.text} /> }
+            {/* { !!selected && <NextBlock action={next.func} text={next.text} /> } */}
+            <NextBlock action={next.func} text={next.text} />
         </>
     )
 }

@@ -1,4 +1,4 @@
-package com.atesp_pesquisa_me
+package com.pesquisame
 
 import android.app.Application
 import com.facebook.react.PackageList
