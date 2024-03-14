@@ -179,6 +179,7 @@ CREATE TABLE user_searches (
 CREATE TABLE search_answers (
   id INT NOT NULL AUTO_INCREMENT,
   client_id INT NOT NULL,
+  search_id INT NOT NULL,
   question_id INT NOT NULL,
   section VARCHAR(40) NOT NULL,
   answer_collected VARCHAR(255) NOT NULL,
@@ -186,6 +187,7 @@ CREATE TABLE search_answers (
   
   PRIMARY KEY (id),
   FOREIGN KEY (client_id) REFERENCES clients(id),
+  FOREIGN KEY (search_id) REFERENCES searches(id),
   FOREIGN KEY (question_id) REFERENCES question_blocks(id),
   FOREIGN KEY (user_id) REFERENCES users(id)
 );
