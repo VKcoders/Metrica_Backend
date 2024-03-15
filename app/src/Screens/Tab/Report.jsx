@@ -8,23 +8,26 @@ function Report({route: { name }, navigation: { navigate }}) {
     const localized = strings[name];
     const css = styles[name];
 
-    const mock = false
+    // const mock = false
 
-    return !mock ? (
-        <>
-            <Background index={"3"} />
-            <SafeAreaView style={css.noReport}>
-                <TouchableOpacity style={css.newReport}>
-                    <Text style={css.newReport.text}>{localized.new}</Text>
-                    <Image source={icons.add} style={css.newReport.icon} />
-                </TouchableOpacity>
-            </SafeAreaView>
-        </>
-    ) : (
+    return (
+    // return !mock ? (
+    //     <>
+    //         <Background index={"3"} />
+    //         <SafeAreaView style={css.noReport}>
+    //             <TouchableOpacity style={css.newReport}>
+    //                 <Text style={css.newReport.text}>{localized.new}</Text>
+    //                 <Image source={icons.add} style={css.newReport.icon} />
+    //             </TouchableOpacity>
+    //         </SafeAreaView>
+    //     </>
+    // ) : (
         <>
             <Background index={"5"} />
-            <Text>Tem Ocorrencia</Text>
+            {/* <Text>Tem Ocorrencia</Text> */}
         </>
+    // )
+
     )
 }
 

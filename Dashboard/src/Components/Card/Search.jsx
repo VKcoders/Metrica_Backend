@@ -1,23 +1,28 @@
-import { useEffect } from "react";
-import "../../Styles/Components/SearchCard.css"
+import { useEffect, useState } from "react";
+import "../../Styles/Components/SearchCard.css";
 
-function Search({ data }) {
-    const { client_id, id, introduction, qtd_users, search, total, users_meta } = data;
+import { getClientById } from "../../Services/Client";
 
+function Search({ data, token }) {
+    const { client_id, qtd_users, total, users_meta } = data;
+    const [clientName, setClientName] = useState('');
+    
     useEffect(() => {
         async function Jobs() {
-            
+            const { name } = await getClientById(client_id, token);
+            setClientName(name);
         };
         Jobs();
     }, []);
 
     return (
         <div className="search-card-container">
-            <p>cliente: {client_id}</p>
+            <p><strong>{clientName}</strong></p>
             <hr />
             <p>Total de Perguntas: {total}</p>
             <hr />
-            <p>{qtd_users} entrevistadores com meta de {users_meta} perguntas</p>
+            <p>Entrevistadores: {qtd_users}</p>
+            <p>Meta: {users_meta} perguntas</p>
         </div>
     )
 }

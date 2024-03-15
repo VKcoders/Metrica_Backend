@@ -37,7 +37,7 @@ function All() {
         </div>
       ) : (
         <div className="activated-search-display">
-          { response.data.map((e, i)=> <Card key={"search-on-" + i} data={e} />) }
+          { response.data.map((e, i)=> <Card key={"search-on-" + i} token={token} data={e} />) }
         </div>
       )}
     </div>

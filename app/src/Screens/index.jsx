@@ -19,6 +19,6 @@ export const tabScreens = {
     Historic,
     Remainder,
     Home,
-    Announcement,
+    Announcement, 
     Report
 };

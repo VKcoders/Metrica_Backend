@@ -28,7 +28,6 @@ export default async (obj, token) => {
     questions: indexType(obj["Perguntas"].value),
   }
 
-
   try {
     const { data } = await api.post( ENDPOINT, objFormated, { headers: { 'Authorization': token }});
     return data;
