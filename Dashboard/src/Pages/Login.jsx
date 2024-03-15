@@ -5,27 +5,23 @@ import { Global } from "../Context";
 import "../Styles/Login.css";
 import Cover from "../Assets/Cover.png";
 
-// import { requestLogin } from "../Service/Main/Login";
+import { generateToken } from "../Services/Token";
 
 function LoginPage() {
   const { setClient, setToken, credentials, setCredentials } = useContext(Global);
   const navigate = useNavigate();
 
   const handleClick = async () => {
-    console.log(credentials);
-    // const response = await requestLogin(credentials);
+    const response = await generateToken(credentials);
+
+    if (!response.status) {
+      window.alert("Senha/Usuário Invalido");
+      setCredentials(prev => ({...prev, password: ""}));
+      return;
+    }
     
-    // if (!response.token) {
-    //   window.alert(response);
-    //   setCredentials(prev => ({...prev, password: ""}));
-    //   return;
-    // }
-
-    // setToken(response.token);
-    // setClient(response.data);
-    // navigate(`/${response.endpoint}`);
-
-
+    setToken(response.token);
+    navigate("/dashboard");
   }
 
   const textInput = (name) => {
@@ -65,6 +61,8 @@ function LoginPage() {
           style={{
             backgroundColor: 
               credentials.username.length <= 4 || credentials.password.length <= 6 ? "gray" : "blue",
+            cursor: 
+              credentials.username.length <= 4 || credentials.password.length <= 6 ? "default" : "pointer",
           }}
           disabled={credentials.username.length <= 4 || credentials.password.length <= 6}
         />
