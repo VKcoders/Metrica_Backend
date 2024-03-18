@@ -1,0 +1,11 @@
+.new-question-container {
+    display: flex;
+    flex-grow: 1;
+}
+
+.new-question-title {
+    color: black;
+    margin-top: 50px;
+    text-align: center;
+    width: 100%;
+}

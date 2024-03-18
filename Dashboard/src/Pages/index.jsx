@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 
-import Loader from "../Components/Loader";
+import Loader from "../Components/Loader/Login";
 import Menu from "../Components/Menu";
 import Content from "./Content";
 
-function Home() {
+function Dashboard() {
     const [loader, setLoader] = useState(true);
 
     useEffect(() => {
@@ -23,4 +23,4 @@ function Home() {
     )
 };
 
-export default Home;
+export default Dashboard;

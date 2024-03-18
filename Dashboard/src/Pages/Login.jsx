@@ -8,7 +8,7 @@ import Cover from "../Assets/Cover.png";
 import { generateToken } from "../Services/Token";
 
 function LoginPage() {
-  const { setClient, setToken, credentials, setCredentials } = useContext(Global);
+  const { setToken, credentials, setCredentials } = useContext(Global);
   const navigate = useNavigate();
 
   const handleClick = async () => {

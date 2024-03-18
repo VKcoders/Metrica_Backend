@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { Global } from "../../Context";
 
 import "../../Styles/Client.css";
-import Loader from "../../Components/Loader";
+import Loader from "../../Components/Loader/OnProgram";
 import { Client as Card } from "../../Components/Card";
 
 import { getAllClients, createClient } from "../../Services/Client";

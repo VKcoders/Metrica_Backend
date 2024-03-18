@@ -2,11 +2,10 @@ import { useState, useEffect, useContext } from "react";
 import { Global } from "../../Context";
 
 import "../../Styles/All.css";
-import Loader from "../../Components/Loader";
+import Loader from "../../Components/Loader/OnProgram";
 import { Search as Card } from "../../Components/Card";
 
 import { getAllSearch } from "../../Services/Search";
-
 
 function All() {
   const { token } = useContext(Global);

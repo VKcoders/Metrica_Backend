@@ -2,4 +2,4 @@ import { createContext } from "react";
 
 export const Global = createContext();
 
-export const Pesquisa = createContext();
+export const Search = createContext();
