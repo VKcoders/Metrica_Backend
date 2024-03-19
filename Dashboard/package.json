@@ -10,6 +10,7 @@
     "start": "concurrently \"npm run dev\" \"npm run electron\"",
     "dev": "vite",
     "electron": "electron .",
+    "build": "vite build",
     "build:windows": "electron-builder --win",
     "build:mac": "electron-builder --mac"
   },
