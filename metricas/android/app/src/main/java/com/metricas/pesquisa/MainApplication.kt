@@ -1,4 +1,4 @@
-package com.metricas
+package com.metricas.pesquisa
 
 import android.app.Application
 import com.facebook.react.PackageList

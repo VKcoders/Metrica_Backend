@@ -32,8 +32,8 @@ function Geral() {
     }, []);
 
     useEffect(() => {
-        setCurrent(p => ({...p, meta: p.total / p.qtdUsers}))
-    }, [current.qtdUsers || current.total || current.clientId])
+        setCurrent(p => ({...p, meta: p.total / p.qtdUsers}));
+    }, [current.qtdUsers | current.total | current.clientId])
 
     
 

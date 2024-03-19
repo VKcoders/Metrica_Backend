@@ -5,7 +5,7 @@ function Client({ data, action, selected, i }) {
     const {name, user, password, id} = data;
 
     const handleClick = () => {
-        action({clientId: id, selectedId: i});
+        action(prev => ({...prev, clientId: id, selectedId: i}));
     }
     
     return (

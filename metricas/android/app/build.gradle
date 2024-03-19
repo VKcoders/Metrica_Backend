@@ -74,9 +74,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.metricas"
+    namespace "com.metricas.pesquisa"
     defaultConfig {
-        applicationId "com.metricas"
+        applicationId "com.metricas.pesquisa"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

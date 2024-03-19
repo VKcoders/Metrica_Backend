@@ -2,6 +2,7 @@
   height: 100%;
   width: 80%;
   flex-grow: 1;
+  align-self: center;
 
   display: flex;
   flex-direction: column;

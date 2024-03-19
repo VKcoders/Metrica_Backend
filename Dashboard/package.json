@@ -1,20 +1,20 @@
 {
-  "name": "pesquisa-me",
+  "name": "metrica-dashboard",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Dashboard para monitorar e gerenciar o app Métrica",
+  "author": "Vincenzo F. Di Giacomo",
   "type": "module",
   "main": "public/electron.cjs",
   "scripts": {
     "start": "concurrently \"npm run dev\" \"npm run electron\"",
     "dev": "vite",
     "electron": "electron .",
-    "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "build:windows": "electron-builder --win",
+    "build:mac": "electron-builder --mac"
   },
   "dependencies": {
     "axios": "^1.6.7",
-    "electron": "^29.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3"
@@ -24,10 +24,25 @@
     "@types/react-dom": "^18.2.21",
     "@vitejs/plugin-react": "^4.2.1",
     "concurrently": "^8.2.2",
+    "electron": "^29.1.2",
+    "electron-builder": "^24.13.3",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "vite": "^5.1.6"
+  },
+  "build": {
+    "appId": "com.metrica.app",
+    "productName": "Metrica Dashboard",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "icon": "src/Assets/Logo.png"
+    },
+    "mac": {
+      "icon": "src/Assets/Logo.png"
+    }
   }
 }
