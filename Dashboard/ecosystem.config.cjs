@@ -3,7 +3,7 @@ module.exports = {
           {
                name: 'metrica-dashboard',
                script: 'npm',
-               args: 'run dev',
+               args: ['run', 'dev'],
                interpreter: '/bin/bash'
           }
      ]
