@@ -5,20 +5,12 @@ const strings = {
           password: ["Senha", "digite sua senha"],
           submitBtn: "Entrar"
      },
-     Remainder: {
-          new: "Criar um lembrete",
-          add: "Adicionar mais um lembrete",
-          remove: "Remover Lembrete",
-          edit: "Editar lembrete"
-     },
-     Announcement: {
-          noAnnouncement: "Sem avisos até o momento..."
-     },
-     Report: {
-          new: "Criar uma ocorrência",
-          add: "Adicionar mais um ocorrência",
-          remove: "Remover ocorrência",
-          edit: "Editar ocorrência"
+     Component: {
+          ToggleMenu: [
+               ["Inicio", "Home"],
+               ["Progresso", "Progress"],
+               ["Resultados", "Result"],
+          ]
      },
      Modal: {
           Login: ["Usuário ou Senha inválido.", "Confirmar"],

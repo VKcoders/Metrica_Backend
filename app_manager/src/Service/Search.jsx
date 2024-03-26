@@ -2,10 +2,11 @@ import api from "./api";
 
 const ENDPOINT = '/search'
 
-export const getAllSearchs = async (token) => {  
+export const getAllMenagerSearchs = async (clientId, token) => {  
   try {
     const { data } = await api.get(
       ENDPOINT,
+      {clientId},
       {
         headers: { 'Authorization': token }
       }

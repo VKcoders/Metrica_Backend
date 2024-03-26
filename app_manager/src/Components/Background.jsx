@@ -1,13 +1,20 @@
-import { ImageBackground } from "react-native";
+import { StyleSheet, Dimensions, ImageBackground } from "react-native";
+
+const { height, width } = Dimensions.get('window');
 
 import { icons } from "../Localized";
-import { screens as styles } from "../Style";
 
 function Background({index}) {
-      const css = styles["Background"];
       const image = icons.background[index]
 
-      return <ImageBackground source={image} resizeMode="cover" style={css} />;
+      return <ImageBackground source={image} resizeMode="cover" style={styles} />;
 }
+
+const styles = StyleSheet.create({
+      backgroundColor: 'white',
+      position: 'absolute',
+      height,
+      width,
+})
 
 export default Background;
