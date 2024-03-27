@@ -2,17 +2,16 @@ import api from "./api";
 
 const ENDPOINT = '/search'
 
-export const getAllMenagerSearchs = async (clientId, token) => {  
+export const getAllMenagerSearchs = async (clientId, token) => {
   try {
     const { data } = await api.get(
-      ENDPOINT,
-      {clientId},
+      `${ENDPOINT}/main/${clientId}`,
       {
         headers: { 'Authorization': token }
       }
     );
 
-    return data[0];
+    return data;
   } catch (error) {
     console.error(error);
   }
@@ -61,6 +60,6 @@ export const getSearchMain = async (id, token) => {
 }
 
 export default {
-  getAllSearchs,
+  getAllMenagerSearchs,
   getSearchById
 }

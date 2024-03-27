@@ -5,6 +5,10 @@ const strings = {
           password: ["Senha", "digite sua senha"],
           submitBtn: "Entrar"
      },
+     Home: {
+          hi: "Olá",
+          
+     },
      Component: {
           ToggleMenu: [
                ["Inicio", "Home"],

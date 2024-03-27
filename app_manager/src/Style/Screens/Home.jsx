@@ -5,26 +5,40 @@ const { height } = Dimensions.get("screen")
 export default StyleSheet.create({
     screen: {
         flex: 1,
-        alignItems: "center",
     },
-    bar: {
-        width: "70%",
-        height: 2,
+    title: {
         alignSelf: "center",
-        marginTop: 30,
-        marginBottom: 20,
-        borderRadius: 20,
-        backgroundColor: "gray"
+        fontSize: 18,
+        fontWeight: "700",
+        marginTop: 60,
+        color: "black",
+        marginBottom: 50
     },
-    reload: {
-        icon: {
-            height: 50,
-            width: 50,
-            tintColor: "gray"
+    searchContainer: {
+        container: {
+            backgroundColor: "#708090",
+            padding: 10,
+            borderTopRightRadius: 10,
+            borderBottomRightRadius: 10,
+            borderBottomLeftRadius: 10,
         },
-        height: height * 0.4,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-    }
+        title: {
+            backgroundColor: "#708090",
+            fontSize: 16,
+            color: "black",
+            fontWeight: "700",
+            width: "60%",
+            textAlign: "center",
+            borderTopRightRadius: 10,
+            borderTopLeftRadius: 10,
+            padding: 10
+        },
+        noData: {
+            padding: 20,
+            textAlign: "center",
+            fontWeight: "600",
+        },
+        marginBottom: 20,
+        padding: 10,
+    },
 })

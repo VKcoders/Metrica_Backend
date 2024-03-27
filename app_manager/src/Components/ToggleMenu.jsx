@@ -42,6 +42,7 @@ function ToggleMenu({currentLocation}) {
 const styles = StyleSheet.create({
     toggleContainer: {
         position: "absolute",
+        zIndex: 10,
         top: 15,
         left: 15,
         width: 50,
@@ -55,14 +56,14 @@ const styles = StyleSheet.create({
     mask: {
         backgroundColor: "rgba(0, 0, 0, 0.35)",
         position: "absolute",
-        zIndex: 1,
+        zIndex: 10,
         height,
         width
     },
     menuContent: {
         backgroundColor: "#708090",
         position: "absolute",
-        zIndex: 1,
+        zIndex: 11,
         height,
         width: width * 0.40
     },
