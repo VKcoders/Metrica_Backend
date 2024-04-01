@@ -7,7 +7,12 @@ const strings = {
      },
      Home: {
           hi: "Olá",
-          
+          searchTopics: ["Pesquisas Ativas", "Historico"],
+          noResult: "Vazio"
+     },
+     Progress: {
+          title: "Selecione uma pesquisa",
+          noResult: "Nehuma Pesquisa"
      },
      Component: {
           ToggleMenu: [

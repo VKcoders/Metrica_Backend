@@ -5,30 +5,33 @@ import { strings } from "../Localized";
 
 const { height, width } = Dimensions.get("screen");
 
-function ToggleMenu({currentLocation}) {
+function ToggleMenu({currentLocation, nav}) {
     const [open, setOpen] = useState(false);
     const localized = strings.Component.ToggleMenu;
 
-    const handlePress = () => {
-        setOpen(!open);
-    }
+    const handlePressClose = () => setOpen(!open);
+
+    const handleNavigation = (where) => {
+        setOpen(false);
+        nav(where);
+    };
 
     return !open ? (
-        <TouchableOpacity style={styles.toggleContainer} onPress={handlePress}>
+        <TouchableOpacity style={styles.toggleContainer} onPress={handlePressClose}>
             <View style={styles.bar} />
             <View style={styles.bar} />
             <View style={styles.bar} />
         </TouchableOpacity>
     ) : (
         <>
-            <TouchableOpacity style={styles.mask} onPress={handlePress}/>
+            <TouchableOpacity style={styles.mask} onPress={handlePressClose}/>
             <View style={styles.menuContent}>
                 {
                     localized.map((name, i) => {
                         const current = currentLocation === name[1];
 
                         return (
-                            <TouchableOpacity key={"menu-" + i} style={styles.menuItem}>
+                            <TouchableOpacity disabled={!!current} key={"menu-" + i} style={styles.menuItem} onPress={() => handleNavigation(name[1])}>
                                 <Text style={[styles.menuItem.text, !!current && {color: "#E5E4E2"}]}>{name[0]}</Text>
                             </TouchableOpacity>
                         )

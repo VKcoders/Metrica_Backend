@@ -35,7 +35,7 @@ function Login({route: { name }, navigation: { navigate }}) {
         if (!!status) {
             setToken(token);
             setUser({id, name});
-            navigate("Home", { clientId: id, token, name });
+            navigate("Home");
             return
         }
         setModal(true);

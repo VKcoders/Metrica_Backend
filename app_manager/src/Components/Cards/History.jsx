@@ -1,12 +1,10 @@
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
-function CardSearch({data, nav, i}) {
+function CardSearch({data, token}) {
     const {id, introduction: qtdIntro, search: qtdQuestion, qtd_users, total} = data;
 
-    const handleClick = () => nav("SearchStatus", {searchId: id});
-
     return (
-        <TouchableOpacity style={styles.container} onPress={handleClick}>
+        <TouchableOpacity style={styles.container}>
             <Text>Identificador: {id}</Text>
             <Text>Número de perguntas: {qtdIntro + qtdQuestion}</Text>
             <Text>Entrevistadores: {qtd_users} pessoas</Text>
