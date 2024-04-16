@@ -1,6 +1,12 @@
 const connection = require('./connection');
 
 module.exports = {
+     getByQuestionId: async (questionId) => {
+          const query = "SELECT answer_collected FROM search_answers WHERE question_id = ?;";
+          const [result] = await connection.execute(query, [questionId]);
+          if (result.length === 0) return [];
+          return result;
+     },
      create: async (clientId, blockName, answer, userId, searchId) => {
           try {
                const placeholders = Array(answer.length).fill('(?, ?, ?, ?, ?, ?)').join(', ');
