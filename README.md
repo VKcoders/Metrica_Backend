@@ -71,7 +71,7 @@ Returns a specific user by ID.
 
 Returns a specific user's progress by Search ID.
 
-## Referência
+## Dependencies
 
  - [MySQL](https://www.npmjs.com/package/mysql2)
  - [Express](https://www.npmjs.com/package/express)
