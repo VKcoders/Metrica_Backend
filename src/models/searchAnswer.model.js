@@ -7,18 +7,18 @@ module.exports = {
           if (result.length === 0) return [];
           return result;
      },
-     create: async (clientId, blockName, answer, userId, searchId) => {
+     create: async (clientId, blockName, answer, userId, searchId, uniqueId, customFilter) => {
           try {
-               const placeholders = Array(answer.length).fill('(?, ?, ?, ?, ?, ?)').join(', ');
-             
+               const placeholders = Array(answer.length).fill('(?, ?, ?, ?, ?, ?, ?, ?)').join(', ');
+
                const query = `
                  INSERT INTO search_answers 
-                   (client_id, search_id, question_id, section, answer_collected, user_id)
-                 VALUES 
+                   (client_id, search_id, question_id, section, answer_collected, user_id, unique_id, custom_filter)
+                 VALUES
                    ${placeholders};
                `;
              
-               const values = answer.flatMap(cur => [clientId, searchId, cur.questionId, blockName, cur.text, userId]);
+               const values = answer.flatMap(cur => [clientId, searchId, cur.questionId, blockName, cur.text, userId, uniqueId, customFilter]);
              
                const [result] = await connection.execute(query, values);
 
