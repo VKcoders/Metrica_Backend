@@ -63,17 +63,6 @@ module.exports = {
       const searchQuery = 'INSERT INTO searches (client_id, introduction, search, qtd_users, users_meta, total) VALUES (?, ?, ?, ?, ?, ?);';
       const [ result ] = await connection.execute(searchQuery, [clientId, ...ids.sections, qtdUsers, meta, total]);
 
-      // Binding to Users result.insertId
-      const bindingUsers = async (ids) => {
-         for (const id of ids) {
-            await connection.execute(
-               "INSERT INTO user_searches (user_id, search_id, qtd_done, qtd_goal) VALUES (?, ?, ?, ?);",
-               [
-                  id, result.insertId, 0, meta
-               ]);
-         }
-      };
-
       const [allUsers] = await connection.execute("SELECT id FROM users");
       const usersIds = allUsers.reduce((acc, cur) => {
          acc.push(cur.id)
@@ -87,5 +76,18 @@ module.exports = {
       }
       
       return { msg: "Search created" }
+   },
+   bindSearchToUsers: async (relationData) => {
+      const queryGetSearchGoal = "SELECT users_meta FROM searches WHERE id = ?;";
+      const queryCreateBind = "INSERT INTO user_searches (user_id, search_id, qtd_done, qtd_goal) VALUES (?, ?, 0, ?);";
+
+      for (const toBeRelated of relationData) {
+         const { userId, searchId } = toBeRelated;
+         const [metaByUser] = await connection.execute(queryGetSearchGoal, [searchId]);
+
+         await connection.execute(queryCreateBind, [userId, searchId, metaByUser]);
+      };
+
+      return { msg: "Users binded to searches" }
    }
 };
