@@ -1,8 +1,8 @@
 const { searchAnswer: model } = require('../models');
 
 module.exports = {
-    getByQuestionId: async (questionId) => {
-        const result = await model.getByQuestionId(questionId);
+    getByQuestionId: async (questionId, searchId) => {
+        const result = await model.getByQuestionId(questionId, searchId);
         return {status: 200, result};
     },
     create: async (data) => {

@@ -1,9 +1,9 @@
 const connection = require('./connection');
 
 module.exports = {
-     getByQuestionId: async (questionId) => {
-          const query = "SELECT answer_collected, custom_filter FROM search_answers WHERE question_id = ?;";
-          const [result] = await connection.execute(query, [questionId]);
+     getByQuestionId: async (questionId, searchId) => {
+          const query = "SELECT answer_collected, custom_filter FROM search_answers WHERE question_id = ? AND search_id = ?;";
+          const [result] = await connection.execute(query, [questionId, searchId]);
           if (result.length === 0) return [];
           return result;
      },
