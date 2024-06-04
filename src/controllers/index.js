@@ -3,6 +3,7 @@ module.exports.loginManager = require('./loginManager.controller');
 module.exports.user = require('./user.controller');
 module.exports.note = require('./note.controller');
 module.exports.client = require('./client.controller');
+module.exports.warning = require('./warning.controller');
 
 module.exports.search = require('./search.controller');
 module.exports.searchHistory = require('./searchHistory.controller');

@@ -3,6 +3,7 @@ module.exports.loginManager = require('./loginManager.service');
 module.exports.user = require('./user.service');
 module.exports.note = require('./note.service');
 module.exports.client = require('./client.service');
+module.exports.warning = require('./warning.service');
 
 module.exports.search = require('./search.service');
 module.exports.searchHistory = require('./searchHistory.service');
