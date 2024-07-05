@@ -9,6 +9,14 @@ module.exports = {
      },
      create: async (clientId, blockName, answer, userId, searchId, uniqueId, customFilter) => {
           try {
+               // plalhativo
+               const tempQuery = "SELECT qtd_done FROM user_searches WHERE user_id = ? AND search_id = ?;";
+               const [tempQTD] = await connection.execute(tempQuery, [userId, searchId]);
+               
+               const identiTemp = `${userId}-${tempQTD[0].qtd_done + 1}`;
+               //console.log(identiTemp)
+
+
                const placeholders = Array(answer.length).fill('(?, ?, ?, ?, ?, ?, ?, ?)').join(', ');
 
                const query = `
@@ -18,7 +26,8 @@ module.exports = {
                    ${placeholders};
                `;
              
-               const values = answer.flatMap(cur => [clientId, searchId, cur.questionId, blockName, cur.text, userId, uniqueId, customFilter]);
+               // const values = answer.flatMap(cur => [clientId, searchId, cur.questionId, blockName, cur.text, userId, uniqueId, customFilter]);
+               const values = answer.flatMap(cur => [clientId, searchId, cur.questionId, blockName, cur.text, userId, identiTemp, customFilter]);
              
                const [result] = await connection.execute(query, values);
 
