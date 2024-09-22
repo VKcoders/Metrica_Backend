@@ -10,7 +10,7 @@ const api = express();
 api.use(express.json());
 api.use(cors);
 
-const SERVER_INDEX = "pesquisa";
+const SERVER_INDEX = "metrica";
 
 // Requests
 api.use(`/${SERVER_INDEX}/login`, routes.login);
