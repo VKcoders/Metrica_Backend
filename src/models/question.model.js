@@ -49,18 +49,8 @@ module.exports = {
          const query = await buldDinamicQuery(n);
 
          const [result] = await connection.execute(query, [id]);
-
-         const parsedResult = result.map((row) => {
-            const keys = Object.keys(row);
-            keys.forEach((e, i) => {
-               if (i === 0) return;
-               result[0][e] = JSON.parse(result[0][e]);
-               return 
-            })
-            return row;
-         });
-
-         return parsedResult[0];
+         
+         return result[0];
       } catch (error) {
          console.error("Erro ao executar consulta:", error);
          return [];
