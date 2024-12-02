@@ -1,15 +1,45 @@
 const connection = require('./connection');
 
 module.exports = {
-     getByQuestionId: async (questionId, searchId) => {
-          const query = "SELECT answer_collected, custom_filter FROM search_answers WHERE question_id = ? AND search_id = ?;";
-          const [result] = await connection.execute(query, [questionId, searchId]);
+     getByQuestionId: async (questionId, searchId, filter) => {
+          if (filter === "all") {
+               const queryAnswer = "SELECT answer_collected, unique_id FROM search_answers WHERE question_id = ? AND search_id = ?;";
+               const [result] = await connection.execute(queryAnswer, [questionId, searchId]);
+     
+               if (result.length === 0) return [];
+               return result;
+          }
+
+          const queryAnswer = "SELECT answer_collected, unique_id FROM search_answers WHERE question_id = ? AND search_id = ?;";
+          const [result] = await connection.execute(queryAnswer, [questionId, searchId]);
+          
           if (result.length === 0) return [];
-          return result;
+
+          const queryFilter = "SELECT unique_id FROM `search_answers` WHERE section = 'intro' AND answer_collected = ?;";
+          const [filterResult] = await connection.execute(queryFilter, [filter]);
+
+          const filterArr = filterResult.reduce((acc, cur) => {
+               acc.push(cur.unique_id)
+               return acc;
+          }, []);
+
+          const resultFiltered = result.reduce((acc, cur) => {
+               const check = filterArr.find((filter) => filter === cur.unique_id)
+
+               if (!check) {
+                    return acc;
+               }
+
+               acc.push(cur);
+               return acc;
+               return acc;
+          }, [])
+
+          return resultFiltered;
      },
      create: async (clientId, blockName, answer, userId, searchId, uniqueId, customFilter) => {
           try {
-               // plalhativo
+               // palhativo
                const tempQuery = "SELECT qtd_done FROM user_searches WHERE user_id = ? AND search_id = ?;";
                const [tempQTD] = await connection.execute(tempQuery, [userId, searchId]);
                

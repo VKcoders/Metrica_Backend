@@ -4,8 +4,10 @@ module.exports = {
     getByQuestionId: async (req, res, _next) => {
         const questionId = req.params.id;
         const searchId = req.query.searchId;
-        const {status, result} = await service.getByQuestionId(questionId, searchId);
-        return res.status(status).json(result);
+        const filter = req.query.filter;
+
+        const {status, result} = await service.getByQuestionId(questionId, searchId, filter);
+        return res.status(status).json(result);questionId
     },
     create: async (req, res, _next) => {
         const data = req.body;
